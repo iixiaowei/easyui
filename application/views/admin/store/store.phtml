@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+		<title> 蚂蚁(管理工具) </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Use the correct meta names below for your web application
+			 Ref: http://davidbcalhoun.com/2010/viewport-metatag 
+			 
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">-->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-production.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-skins.css">
+
+		<!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-rtl.css"> -->
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/your_style.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/demo.css">
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="/resources/img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/resources/img/favicon/favicon.ico" type="image/x-icon">
+
+		<!-- GOOGLE FONT -->
+		<link rel="stylesheet" href="/resources/css/admin_css.css?family=Open+Sans:400italic,700italic,300,400,700">
+
+	</head>
+	<body class="">
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+	<!-- RIBBON -->
+	<div id="ribbon">
+
+		<span class="ribbon-button-alignment"> <span id="refresh"
+			class="btn btn-ribbon" data-title="refresh" rel="tooltip"
+			data-placement="bottom" data-original-title="<i 
+			class='text-warning fa fa-warning'></i> Warning! This will reset all
+				your widget settings." data-html="true"><i class="fa fa-refresh"></i></span>
+		</span>
+
+		<!-- breadcrumb -->
+		<ol class="breadcrumb">
+			<li>店铺管理</li>
+            <li>魔方铺源</li>
+		</ol>
+		<!-- end breadcrumb -->
+
+	</div>
+	<!-- END RIBBON -->
+
+	<!-- MAIN CONTENT -->
+	<div id="content">
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+				<h1 class="page-title txt-color-blueDark">
+					<i class="fa fa-list-alt"></i> 魔方铺源 <span>> 数据列表</span>
+				</h1>
+			</div>
+	    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8"
+                 style="display: block;">
+
+                <div class="col-sm-14 text-align-right" style="width: 100%;margin-top:15px;">
+
+                    <div class="btn-group">
+                        <a href="index.php?m=admin&c=store&a=store" class="btn btn-sm bg-color-red txt-color-white"
+                           style="padding-left: 15px;"><i
+                                class="glyphicon glyphicon-list"> </i> 店铺列表</a>
+                    </div>
+
+ 
+
+                </div>
+
+            </div>
+		</div>
+		<!-- widget grid -->
+		<section id="widget-grid" class="">
+
+			<div class="row">
+
+				<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-darken" id="wid-id-store-store"
+						data-widget-editbutton="true" data-widget-sortable="true" data-widget-fullscreenbutton="false">
+						<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+						<header>
+							<span class="widget-icon"> <i class="fa fa-table"></i></span>
+							<h2 style="line-height: 30px;">数据列表</h2>
+
+						</header>
+
+						<!-- widget div-->
+						<div>
+
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body no-padding">
+								<div class="widget-body-toolbar">
+                                  
+                                  <div class="row" style="width: 100%;margin:0 auto;">
+                                       
+						            <form id="s_form" method="GET" class="smart-form" action="index.php?m=admin&c=store&a=store">
+						               <fieldset style="padding-left: 5px;">
+						            		 
+                                            
+                                            <section class="col col-12" style="width:400px;float:left;padding-left:0;">
+													<label class="input"> <i class=""></i>
+																	<input type="text" value="<{$s_keyword}>" name="s_keyword" id="s_keyword" placeholder="用关键字（姓名、联系方式、地址、商铺编号）搜索店铺">
+																	</label>
+										     </section>
+										     				     
+										     <a id="btnSearch" style="margin-top:1px;" href="javascript:void(0);" class="btn  btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i>搜索</a>
+										 </fieldset> 										
+										 
+										 
+										 <input type="hidden" name="m" value="admin" />
+										 <input type="hidden" name="c" value="store" />
+										 <input type="hidden" name="a" value="store" />
+										 
+										 <input type="hidden" name="s_district" id="s_district" value="<{$s_district}>" />
+										 <input type="hidden" name="s_build_area" id="s_build_area" value="<{$s_build_area}>" />
+										 <input type="hidden" name="s_property" id="s_property" value="<{$s_property}>" />
+										 <input type="hidden" name="s_trade" id="s_trade" value="<{$s_trade}>" />
+										 <input type="hidden" name="s_rental" id="s_rental" value="<{$s_rental}>" />
+										 <input type="hidden" name="s_tags" id="s_tags" value="<{$s_tags}>" />
+										 <input type="hidden" name="s_oam_times" id="s_oam_times" value="<{$s_oam_times}>" />
+										 <input type="hidden" name="s_is_valid" id="s_is_valid" value="<{$s_is_valid}>" />
+										 <input type="hidden" name="s_source" id="s_source" value="<{$s_source}>" />
+										 
+										 </form>   
+									</div>	
+									
+									 
+									    <div class="alert adjusted alert-info fade in">
+									       
+											<div id="swap_district" style="line-height: 30px;"><strong>行政区域</strong> 
+												<{foreach from=$districts item=vo}>
+												    <span id="<{$vo['nnid']}>" style="cursor:pointer;margin-left:2px;<{if $vo['nnid'] eq $s_district}> color:red; <{/if}>"><{$vo['name']}></span>
+												<{/foreach}>
+												
+											</div>
+											
+											<div id="swap_property" style="line-height: 30px;"><strong>物业性质</strong> 
+												 
+												 <span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_property}> color:red; <{/if}>">不限</span>
+												 <span id="商业街商铺" style="cursor:pointer;margin-left:2px;<{if '商业街商铺' eq $s_property}> color:red; <{/if}>">商业街商铺</span>
+												 <span id="写字楼配套" style="cursor:pointer;margin-left:2px;<{if '写字楼配套' eq $s_property}> color:red; <{/if}>">写字楼配套</span>
+												 <span id="社区底商" style="cursor:pointer;margin-left:2px;<{if '社区底商' eq $s_property}> color:red; <{/if}>">社区底商</span>
+												 <span id="档口摊位" style="cursor:pointer;margin-left:2px;<{if '档口摊位' eq $s_property}> color:red; <{/if}>">档口摊位</span>
+												 <span id="临街门面" style="cursor:pointer;margin-left:2px;<{if '临街门面' eq $s_property}> color:red; <{/if}>">临街门面</span>
+												 <span id="购物百货中心" style="cursor:pointer;margin-left:2px;<{if '购物百货中心' eq $s_property}> color:red; <{/if}>">购物百货中心</span>
+												
+											</div>
+											
+											<div id="swap_trade" style="line-height: 30px;"><strong>当前行业</strong> 
+												<span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_trade}> color:red; <{/if}>">不限</span>
+												<span id="酒楼餐饮" style="cursor:pointer;margin-left:2px;<{if '酒楼餐饮' eq $s_trade}> color:red; <{/if}>">酒楼餐饮</span>
+                                                <span id="生活服务" style="cursor:pointer;margin-left:2px;<{if '生活服务' eq $s_trade}> color:red; <{/if}>">生活服务</span>
+                                                <span id="零售百货" style="cursor:pointer;margin-left:2px;<{if '零售百货' eq $s_trade}> color:red; <{/if}>">零售百货</span>
+                                                <span id="旅馆宾馆" style="cursor:pointer;margin-left:2px;<{if '旅馆宾馆' eq $s_trade}> color:red; <{/if}>">旅馆宾馆</span>
+                                                <span id="教育培训" style="cursor:pointer;margin-left:2px;<{if '教育培训' eq $s_trade}> color:red; <{/if}>">教育培训</span>
+                                                <span id="汽车美容" style="cursor:pointer;margin-left:2px;<{if '汽车美容' eq $s_trade}> color:red; <{/if}>">汽车美容</span>
+                                                <span id="其他" style="cursor:pointer;margin-left:2px;<{if '其他' eq $s_trade}> color:red; <{/if}>">其他</span>
+                                                <span id="空铺" style="cursor:pointer;margin-left:2px;<{if '空铺' eq $s_trade}> color:red; <{/if}>">空铺</span>
+												
+											</div>
+											
+											<div id="swap_rental" style="line-height: 30px;"><strong>租金范围</strong> 
+												 <{foreach from=$rentals item=vo}>
+												    <span id="<{$vo['nnid']}>" style="cursor:pointer;margin-left:2px;<{if $vo['nnid'] eq $s_rental}> color:red; <{/if}>"><{$vo['name']}></span>
+												<{/foreach}>
+												
+											</div>
+											
+											<div id="swap_build_area" style="line-height: 30px;"><strong>建筑面积</strong> 
+												<{foreach from=$build_areas item=vo}>
+												    <span id="<{$vo['nnid']}>" style="cursor:pointer;margin-left:2px;<{if $vo['nnid'] eq $s_build_area}> color:red; <{/if}>"><{$vo['name']}></span>
+												<{/foreach}>
+												
+											</div>
+											
+											<div id="swap_tags" style="line-height: 30px;"><strong>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签</strong> 
+												<span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_tags}> color:red; <{/if}>">不限</span>
+												<span id="店铺" style="cursor:pointer;margin-left:2px;<{if '店铺' eq $s_tags}> color:red; <{/if}>">店铺</span>
+                                                <span id="小区门口" style="cursor:pointer;margin-left:2px;<{if '小区门口' eq $s_tags}> color:red; <{/if}>">小区门口</span>
+                                                <span id="公交站" style="cursor:pointer;margin-left:2px;<{if '公交站' eq $s_tags}> color:red; <{/if}>">公交站</span>
+                                                <span id="地铁站" style="cursor:pointer;margin-left:2px;<{if '地铁站' eq $s_tags}> color:red; <{/if}>">地铁站</span>
+                                                <span id="十字路口" style="cursor:pointer;margin-left:2px;<{if '十字路口' eq $s_tags}> color:red; <{/if}>">十字路口</span>
+                                                <span id="金角" style="cursor:pointer;margin-left:2px;<{if '金角' eq $s_tags}> color:red; <{/if}>">金角</span>
+                                                <span id="超市入口" style="cursor:pointer;margin-left:2px;<{if '超市入口' eq $s_tags}> color:red; <{/if}>">超市入口</span>
+                                                <span id="景区" style="cursor:pointer;margin-left:2px;<{if '景区' eq $s_tags}> color:red; <{/if}>">景区</span>
+                                                <span id="正对斑马线" style="cursor:pointer;margin-left:2px;<{if '正对斑马线' eq $s_tags}> color:red; <{/if}>">正对斑马线</span>
+                                                <span id="有烟草证" style="cursor:pointer;margin-left:2px;<{if '有烟草证' eq $s_tags}> color:red; <{/if}>">有烟草证</span>
+                                                <span id="有餐饮证" style="cursor:pointer;margin-left:2px;<{if '有餐饮证' eq $s_tags}> color:red; <{/if}>">有餐饮证</span>
+                                                <span id="展示面好" style="cursor:pointer;margin-left:2px;<{if '展示面好' eq $s_tags}> color:red; <{/if}>">展示面好</span>
+												
+											</div>
+											
+											
+											<div id="swap_oam_times" style="line-height: 30px;"><strong>店铺维护</strong> 
+												<span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_oam_times}> color:red; <{/if}>">不限</span>
+												<span id="已过期" style="cursor:pointer;margin-left:2px;<{if '已过期' eq $s_oam_times}> color:red; <{/if}>">已过期</span>
+												<span id="3天内" style="cursor:pointer;margin-left:2px;<{if '3天内' eq $s_oam_times}> color:red; <{/if}>">3天内</span>
+                                                <span id="7天内" style="cursor:pointer;margin-left:2px;<{if '7天内' eq $s_oam_times}> color:red; <{/if}>">7天内</span>
+												
+											</div>
+											
+											<div id="swap_is_valid" style="line-height: 30px;"><strong>店铺状态</strong> 
+												<span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_is_valid}> color:red; <{/if}>">不限</span>
+												<span id="待审核" style="cursor:pointer;margin-left:2px;<{if '待审核' eq $s_is_valid}> color:red; <{/if}>">待审核</span>
+                                                <span id="已发布" style="cursor:pointer;margin-left:2px;<{if '已发布' eq $s_is_valid}> color:red; <{/if}>">已发布</span>
+											</div>
+											
+											<div id="swap_source" style="line-height: 30px;"><strong>店铺性质</strong> 
+												<span id="" style="cursor:pointer;margin-left:2px;<{if '' eq $s_source}> color:red; <{/if}>">不限</span>
+												<span id="正常扫铺" style="cursor:pointer;margin-left:2px;<{if '正常扫铺' eq $s_source}> color:red; <{/if}>">正常扫铺</span>
+                                                <span id="挖铺" style="cursor:pointer;margin-left:2px;<{if '挖铺' eq $s_source}> color:red; <{/if}>">挖铺</span>
+											</div>
+											
+										</div>
+									
+								</div>
+
+								<table id="dt_basic"
+									class="table table-striped table-bordered table-hover" style="width:99%;margin:0 auto;">                                    
+									<tbody>
+									<{foreach from=$lists item=vo}>
+								    <tr>
+    									   <td >
+    										  <div style="line-height: 30px;<{if $vo['is_oam_expire'] eq 1}>background: yellow;<{/if}>">
+												   <span>ID:<{$vo['id']}></span>
+												   <span style="margin-left: 10px;">|</span>
+												   <span style="margin-left: 10px;"><{$vo['street_sn']}>号</span>
+												   <span style="margin-left: 10px;">|</span>
+												   <span style="margin-left: 10px;"><{$vo['build_area']}>㎡ </span>
+    										       <span style="margin-left: 10px;"><{$vo['rental_year']}>万/年</span>
+    										       <span style="margin-left: 10px;"><{$vo['transfer_fee']}>万</span>
+    										       <span style="margin-left: 10px;">|</span>
+    										       <span style="margin-left: 10px;"><{$vo['property']}></span>
+    										    
+												   <span style="float: right;">
+													
+													<{if $vo['is_oam_expire'] eq 1}>
+														<{$vo['oam_str']}>
+													<{else}>
+													    <{$vo['oam_str']}>
+													<{/if}>	
+													
+												   </span>	
+    										       
+    										       <span style="float: right;margin-right:30px;"><{$vo['operator_name']}> <{$vo['created_at']}>上传</span>
+    										       
+    										  </div>		
+    										  <div style="margin-top: 5px;">
+    										      <div style="float:left;">
+    										         <img alt="" src="<{$vo['thumb']}>" style="width:120px;height:120px;position:absolute;" >
+														<div style="position: relative;background: #000;width: 120px;top:95px;height: 25px;line-height: 25px;text-align: center;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; -khtml-opacity: 0.6;">
+															<font style="color:#fff;font-size:12px;"><{$vo['status_str']}></font>
+														</div>
+													 </img>
+    										      </div>
+    										      <div style="float:left;margin-left:5px;">
+    										          <div style="line-height:30px;"><span><{$vo['district']}></span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;"><{$vo['street']}><{$vo['street_sn']}>号</span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;"><{$vo['trade']}></span>  <span style="margin-left:10px;">|</span> 
+													  <span style="margin-left:10px;"><{$vo['present_operation']}></span> <span style="margin-left:10px;"> | </span>  
+    										          <span style="margin-left:10px;"><{$vo['basic_installations']}></span>  <span style="margin-left: 10px;">|</span>  <span style="margin-left: 10px;"> 门头<{$vo['door_width']}>m</span>  <span style="margin-left: 10px;">|</span>
+    										          <span style="margin-left: 10px;"><{$vo['floor_str']}></span>  <span style="margin-left: 10px;">|</span> <span style="margin-left: 10px;"></span>     </div>
+    										          <div style="line-height:30px;">标签：
+													  
+													  </div>
+    										          <div style="line-height:30px;"><{$vo['tags_str']}></div>
+    										      </div>
+												  <span style="float: right;"> 
+														<a class="btn btn-info btn-xs" href="index.php?m=admin&c=store&a=updateStore&id=<{$vo['id']}>"><i class="fa fa-edit"></i> 修改</a>
+														<a class="btn btn-info btn-xs" href="index.php?m=admin&c=store&a=details&id=<{$vo['id']}>"><i class="fa fa-file-text"></i> 详情</a>
+													   </span>
+    										  </div>		
+    									   </td>
+    									</tr>	
+    								<{foreachelse}>
+    										<tr>
+    										<td>暂无</td>
+    										</tr>
+    								<{/foreach}>		 
+									</tbody>
+									
+								</table>
+								<div class="text-center">
+								<ul class="pagination pagination-alt">
+											<{$pages}>
+								</ul></div>
+							</div>
+							<!-- end widget content -->
+
+						</div>
+						<!-- end widget div -->
+
+					</div>
+					<!-- end widget -->
+				</article>
+
+			</div>
+
+
+		</section>
+		<!-- end widget grid -->
+
+	</div>
+	<!-- END MAIN CONTENT -->
+
+</div>
+
+	</body>
+</html>		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="/resources/js/plugin/pace/pace.min.js"></script>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="/resources/js/libs/jquery-2.0.2.min.js"><\/script>');
+			}
+		</script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="/resources/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+			}
+		</script>
+		<script src="/resources/js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="/resources/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="/resources/js/jquery.form.js"></script>
+		<script src="/resources/js/jquery.validate.js"></script>
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="/resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+		<!-- BOOTSTRAP JS -->
+		<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="/resources/js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="/resources/js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="/resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="/resources/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="/resources/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="/resources/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="/resources/js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="/resources/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="/resources/js/plugin/fastclick/fastclick.js"></script>
+
+		<!--[if IE 7]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+		<!-- MAIN APP JS FILE -->
+		<script src="/resources/js/app.js"></script>
+		<script src="/resources/js/demo.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		
+ 
+	   <!-- PAGE RELATED PLUGIN(S) -->
+		<script src="/resources/js/plugin/datatables/jquery.dataTables-cust.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ColReorder.min.js"></script>
+		<script src="/resources/js/plugin/datatables/FixedColumns.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ColVis.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ZeroClipboard.js"></script>
+		<script src="/resources/js/plugin/datatables/media/js/TableTools.min.js"></script>
+		<script src="/resources/js/plugin/datatables/DT_bootstrap.js"></script>
+        
+		
+
+		<script type="text/javascript">
+		
+                function isNull(str) {
+			if (str == "") return true;
+			var regu = "^[ ]+$";
+			var re = new RegExp(regu);
+			return re.test(str);
+		}
+        
+		$(document).ready(function() {
+			$("#btnSearch").click(function(){
+				    $("#s_district").val( "" );
+				    $("#s_build_area").val( "" );
+					$("#s_property").val( "" );
+					$("#s_trade").val( "" );
+					$("#s_rental").val( "" );
+					$("#s_tags").val( "" );
+					$("#s_oam_times").val( "" );
+					$("#s_is_valid").val( "" );
+					$("#s_source").val( "" );
+					$("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+					$("#s_form").submit(); 		
+	        });
+
+			$("#swap_district span").click(function(){
+				 $("#s_district").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_build_area span").click(function(){
+				 $("#s_build_area").val( $(this).attr('id') );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+
+			$("#swap_property span").click(function(){
+				 $("#s_property").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+
+			$("#swap_trade span").click(function(){
+				 $("#s_trade").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_rental span").click(function(){
+				 $("#s_rental").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_tags span").click(function(){
+				 $("#s_tags").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_oam_times span").click(function(){
+				 $("#s_oam_times").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_is_valid span").click(function(){
+				 $("#s_is_valid").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+			
+			$("#swap_source span").click(function(){
+				 $("#s_source").val( $(this).attr("id") );
+				 $("#s_form").attr('action',"index.php?m=admin&c=store&a=store"); 
+				 $("#s_form").submit();
+			});
+
+			
+ 
+            $.datepicker.regional["zh-CN"] = { closeText: "关闭",currentText: "今天", monthNames: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], monthNamesShort: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], dayNames: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"], dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"], dayNamesMin: ["日", "一", "二", "三", "四", "五", "六"], weekHeader: "周", dateFormat: "yy-mm-dd", firstDay: 1, isRTL: !1, showMonthAfterYear: !0, yearSuffix: "年" }
+            $.datepicker.setDefaults($.datepicker.regional["zh-CN"]);
+            pageSetUp();
+            $('.date').datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: true,  
+                changeMonth: true,
+                changeYear: true,
+                prevText : '<i class="fa fa-chevron-left"></i>',
+                nextText : '<i class="fa fa-chevron-right"></i>',
+                dateFormat : 'yy-mm-dd'
+            });
+            
+			pageSetUp();
+		});
+
+ </script>
+ 

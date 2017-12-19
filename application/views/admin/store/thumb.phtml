@@ -1,0 +1,25 @@
+<div class="dz-preview dz-processing dz-success dz-image-preview"
+	id="qiniu_<{$key}>" data="<{$key}>">
+	<div class="dz-details">
+	
+		<div class="dz-filename">
+			<span data-dz-name=""></span>
+		</div>
+		<div class="dz-size" data-dz-size="">
+			<strong></strong>
+		</div>
+		<a href="<{$original_url}>" target="_blank">
+			<img   src="<{$thumb_url}>"  />
+		</a>
+	</div>
+	<div class="dz-progress">
+		<span class="dz-upload" data-dz-uploadprogress="" style="width: 100%;"></span>
+	</div>
+	<div class="dz-error-mark">
+		<span><i class="fa fa-times"></i></span>
+	</div>
+	<div class="dz-error-message">
+		<span data-dz-errormessage=""></span>
+	</div>
+	<a class="btn btn-sm btn-danger btn-block" href="javascript:void(0);" onclick="deleteThumb('<{$key}>');">删除</a>
+</div>

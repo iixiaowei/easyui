@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+<title>铺军师(管理工具)</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Use the correct meta names below for your web application
+			 Ref: http://davidbcalhoun.com/2010/viewport-metatag 
+			 
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">-->
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Basic Styles -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/css/font-awesome.min.css">
+
+<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/css/smartadmin-production.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/css/smartadmin-skins.css">
+
+<!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-rtl.css"> -->
+
+<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/your_style.css"> -->
+
+<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/css/demo.css">
+
+<!-- FAVICONS -->
+<link rel="shortcut icon" href="/resources/img/favicon/favicon.ico"
+	type="image/x-icon">
+<link rel="icon" href="/resources/img/favicon/favicon.ico"
+	type="image/x-icon">
+
+<!-- GOOGLE FONT -->
+<link rel="stylesheet"
+	href="/resources/css/admin_css.css?family=Open+Sans:400italic,700italic,300,400,700">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="/resources/js/libs/jquery-ui-timepicker-addon.css">
+</head>
+<body class="">
+ 
+ 
+ 
+<div class="col-md-12" id="swap_tags_insert">
+
+<div class="widget-body" style="width:98%;margin:0 auto;">
+	
+	<form class="form-inline" role="form">
+
+		<fieldset>
+			 
+			 
+			 <div class="form-group" style="width:100%;">
+					<div class="col-md-12">
+					   <div id="swap_tags_0" style="width:100%;" class="col-md-12">
+					 
+					   </div>
+                       <section style="clear:both;">
+                            <label class="input">标签 <select multiple
+                                style="width: 100%" class="select2" placeholder="" 
+                                id="tagName" name="tagName">
+                                     <optgroup label="标签">
+                                         
+                                              <option value="上的发生的" >水电费水电费</option>
+                                              <option value="上的发生的1" >水电费水电费1</option>
+                                          
+                                      </optgroup>
+                            </select> <i></i>
+                            </label>
+                        </section>
+                        
+                        
+						
+					</div>
+					
+				</div>
+			 
+			 
+			 
+			 
+			 
+		</fieldset>
+
+	</form>
+
+</div>
+
+ 
+</div> 
+ <div class="col-md-12">
+   <div class="col-sm-12 col-md-12 sortable-grid ui-sortable">
+										<footer style="margin-bottom: 30px;">
+											<button id="btnSubmit" type="submit" class="btn btn-primary" style="margin-left:40px">
+												确认添加</button>
+											 
+										</footer>
+									</div>
+ </div>
+ 
+ <script data-pace-options='{ "restartOnRequestAfter": true }'
+	src="/resources/js/plugin/pace/pace.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write('<script src="/resources/js/libs/jquery-2.0.2.min.js"><\/script>');
+    }
+</script>
+
+<script>
+    if (!window.jQuery.ui) {
+        document.write('<script src="/resources/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+    }
+</script>
+
+<script src="/resources/js/jquery.alerts.js" type="text/javascript"></script>
+<link href="/resources/css/jquery.alerts.css" rel="stylesheet"
+	type="text/css" media="screen" />
+<script src="/resources/jquery.form.js"></script>
+<script src="/resources/js/jquery.validate.js"></script>
+<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+<script src="/resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+<!-- BOOTSTRAP JS -->
+<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- CUSTOM NOTIFICATION -->
+<script src="/resources/js/notification/SmartNotification.min.js"></script>
+
+<!-- JARVIS WIDGETS -->
+<script src="/resources/js/smartwidgets/jarvis.widget.min.js"></script>
+
+<!-- EASY PIE CHARTS -->
+<script
+	src="/resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+<!-- SPARKLINES -->
+<script src="/resources/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+<!-- JQUERY VALIDATE -->
+<script
+	src="/resources/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+<!-- JQUERY MASKED INPUT -->
+<script
+	src="/resources/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+<!-- JQUERY SELECT2 INPUT -->
+<script src="/resources/js/plugin/select2/select2.min.js"></script>
+
+
+
+<!-- browser msie issue fix -->
+<script src="/resources/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+<!-- FastClick: For mobile devices -->
+<script src="/resources/js/plugin/fastclick/fastclick.js"></script>
+
+<!--[if IE 7]>
+
+<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+<![endif]-->
+
+<!-- Demo purpose only -->
+<script src="/resources/js/demo.js"></script>
+
+<!-- MAIN APP JS FILE -->
+<script src="/resources/js/app.js"></script>
+
+<script src="/resources/js/plugin/datatables/jquery.dataTables-cust.min.js"></script>
+<script src="/resources/js/plugin/datatables/ColReorder.min.js"></script>
+<script src="/resources/js/plugin/datatables/FixedColumns.min.js"></script>
+<script src="/resources/js/plugin/datatables/ColVis.min.js"></script>
+<script src="/resources/js/plugin/datatables/ZeroClipboard.js"></script>
+<script src="/resources/js/plugin/datatables/media/js/TableTools.min.js"></script>
+<script src="/resources/js/plugin/datatables/DT_bootstrap.js"></script>
+<script src="/resources/layer/layer.js"></script>
+ 
+<script>
+function isNull(str) {
+    if (str == "") return true;
+    var regu = "^[ ]+$";
+    var re = new RegExp(regu);
+    return re.test(str);
+}
+
+$(function(){
+
+
+	//新增标签
+	$(".addTag").click(function(){
+		var name = $(this).parent().find('.name').val();
+		if(isNull(name)){
+			alert("标签名称不能为空");
+			return false;
+		}
+
+		var reg = new RegExp("^[\u4e00-\u9fa5]+$");
+		if(!reg.test(name))
+		 {
+			 alert("标签只能输入中文");
+		     return false;
+		 }
+
+		 if( name.length > 7 ){
+			 alert("最多只能输入7个中文");
+		     return false;
+		 }
+
+		 var exists = false;	
+	     //判断是否页面存在
+	     $("#swap_tags_0").find('label').each(function(){
+				if( $(this).find('span').html()==name){
+					exists = true;
+				}	
+		 });
+
+		 if(exists==true){ return false; }	 
+		
+	});
+	
+	$("#btnSubmit").click(function(){
+          var tagIds = $("#tagName").val();
+          
+          if(isNull(tagIds)){
+			alert("标签名称不能为空");
+			return false;
+        	}
+
+		var reg = new RegExp("^[\u4e00-\u9fa5]+$");
+		if(!reg.test(tagIds))
+		 {
+			 alert("标签只能输入中文");
+		     return false;
+		 }
+
+		 if( tagIds.length > 7 ){
+			 alert("最多只能输入7个中文");
+		     return false;
+		 }          
+ 
+         parent.updateTagsInfo(tagIds);
+		//var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+		//parent.layer.close(index); //再执行关闭        
+	});
+	 
+	
+})
+
+
+</script>

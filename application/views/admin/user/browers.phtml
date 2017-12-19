@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+		<title> 魔方铺源(管理工具) </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Use the correct meta names below for your web application
+			 Ref: http://davidbcalhoun.com/2010/viewport-metatag 
+			 
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">-->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-production.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-skins.css">
+
+		<!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/smartadmin-rtl.css"> -->
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		     specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/your_style.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/resources/css/demo.css">
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="/resources/img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/resources/img/favicon/favicon.ico" type="image/x-icon">
+
+		<!-- GOOGLE FONT -->
+		<link rel="stylesheet" href="/resources/css/admin_css.css?family=Open+Sans:400italic,700italic,300,400,700">
+
+	</head>
+	<body class="">
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+	<!-- RIBBON -->
+	<div id="ribbon">
+
+		<span class="ribbon-button-alignment"> <span id="refresh"
+			class="btn btn-ribbon" data-title="refresh" rel="tooltip"
+			data-placement="bottom" data-original-title="<i 
+			class='text-warning fa fa-warning'></i> Warning! This will reset all
+				your widget settings." data-html="true"><i class="fa fa-refresh"></i></span>
+		</span>
+
+		<!-- breadcrumb -->
+		<ol class="breadcrumb">
+			<li>用户管理</li>
+            <li>浏览记录</li>
+		</ol>
+		<!-- end breadcrumb -->
+
+	</div>
+	<!-- END RIBBON -->
+
+	<!-- MAIN CONTENT -->
+	<div id="content">
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+				<h1 class="page-title txt-color-blueDark">
+					<i class="fa fa-list-alt"></i> 用户管理 <span>> 浏览记录</span>
+				</h1>
+			</div>
+	    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8"
+                 style="display: block;">
+
+                <div class="col-sm-14 text-align-right" style="width: 100%;margin-top:15px;">
+
+                    <div class="btn-group">
+                        <a href="index.php?m=admin&c=user&a=index" class="btn btn-sm bg-color-red txt-color-white"
+                           style="padding-left: 15px;"><i
+                                class="glyphicon glyphicon-list"> </i> 用户列表</a>
+                    </div>
+
+                </div>
+
+            </div>
+		</div>
+		<!-- widget grid -->
+		<section id="widget-grid" class="">
+
+			<div class="row">
+
+				<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-darken" id="wid-id-user-browers"
+						data-widget-editbutton="true" data-widget-sortable="true" data-widget-fullscreenbutton="false">
+						<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+				
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+				
+								-->
+						<header>
+							<span class="widget-icon"> <i class="fa fa-table"></i></span>
+							<h2 style="line-height: 30px;">数据列表</h2>
+
+						</header>
+
+						<!-- widget div-->
+						<div>
+
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							 
+
+								<table id="dt_basic"
+									class="table table-striped table-bordered table-hover" style="width:99%;margin:0 auto;">                                    
+									<tbody>
+									 	 
+                                     
+                                    
+									<{foreach from=$lists item=vo}>
+									<{if $vo['type'] eq 1}>	
+								    <tr>
+    									   <td >
+    										  <div style="line-height: 30px;">
+												   <span><{$vo['title']}></span>
+												    
+    										       <span style="margin-left: 10px;"></span>
+    										    
+												   <span style="float: right;">
+													
+													<{$vo['source_website']}>
+													
+												   </span>	
+    										       
+    										       <span style="float: right;margin-right:30px;"><{$vo['updated_at']}> 更新</span>
+    										       
+    										  </div>		
+    										  <div style="margin-top: 5px;width:100%;">
+    										      <div style="float:left;">
+    										         <img alt="" src="<{$vo['thumb']}>" style="width:120px;height:120px;position:absolute;" >
+														<div style="position: relative;background: #000;width: 120px;top:95px;height: 25px;line-height: 25px;text-align: center;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; -khtml-opacity: 0.6;">
+															<font style="color:#fff;font-size:12px;"><{$vo['status_str']}></font>
+														</div>
+													 </img>
+    										      </div>
+                                                 <div style="float:right;">
+                                                    
+                                                    <div style="clear:both;"> 
+														<a class="btn btn-info btn-xs" href="javascript:void(0);" onclick="changeStatus(<{$vo['id']}>);"><i class="fa fa-edit"></i> 修改店铺状态</a>
+                                                        <a class="btn btn-info btn-xs" href="<{$vo['site_url']}>" target="_blank"><i class="fa fa-file-text"></i> 跳转原网站</a>
+                                                      </div>
+                                                    
+                                                 </div>
+    										      <div style="float:left;margin-left:5px;">
+    										          <div style="line-height:30px;"><span>租金：<{$vo['rental_value']}><{$vo['rental_unit']}></span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;">转让费：<{$vo['transfer']}></span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;">面积：<{$vo['build_area']}>㎡</span>  <span style="margin-left:10px;">|</span> 
+													  <span style="margin-left:10px;"><{$vo['identity']}>~<{$vo['username']}>：<{$vo['phone']}></span>  
+    										          <div style="line-height:30px;">地址：
+													  
+													  </div>
+    										          <div style="line-height:30px;"><{$vo['address']}></div>
+                                                      
+                                                      
+                                                      <div>
+                                                        &nbsp;
+                                                      </div>
+    										      </div>
+												  
+    										  </div>		
+    									   </td>
+    									</tr>	
+    									 
+								<{elseif $vo['type'] eq 2 }>
+									
+									<tr>
+    									   <td >
+    										  <div style="line-height: 30px;<{if $vo['is_oam_expire'] eq 1}>background: yellow;<{/if}>">
+												   <span><{$vo['street_sn']}>号</span>
+												   <span style="margin-left: 10px;">|</span>
+												   <span style="margin-left: 10px;"><{$vo['build_area']}>㎡ </span>
+    										       <span style="margin-left: 10px;"><{$vo['rental_year']}>万/年</span>
+    										       <span style="margin-left: 10px;"><{$vo['transfer_fee']}>万</span>
+    										       <span style="margin-left: 10px;">|</span>
+    										       <span style="margin-left: 10px;"><{$vo['property']}></span>
+    										    
+												   <span style="float: right;">
+													
+													<{if $vo['is_oam_expire'] eq 1}>
+														<{$vo['oam_str']}>
+													<{else}>
+													    <{$vo['oam_str']}>
+													<{/if}>	
+													
+												   </span>	
+    										       
+    										       <span style="float: right;margin-right:30px;"><{$vo['operator_name']}> <{$vo['created_at']}>上传</span>
+    										       
+    										  </div>		
+    										  <div style="margin-top: 5px;">
+    										      <div style="float:left;">
+    										         <img alt="" src="<{$vo['thumb']}>" style="width:120px;height:120px;position:absolute;" >
+														<div style="position: relative;background: #000;width: 120px;top:95px;height: 25px;line-height: 25px;text-align: center;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6; -khtml-opacity: 0.6;">
+															<font style="color:#fff;font-size:12px;"><{$vo['status_str']}></font>
+														</div>
+													 </img>
+    										      </div>
+    										      <div style="float:left;margin-left:5px;">
+    										          <div style="line-height:30px;"><span><{$vo['district']}></span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;"><{$vo['street']}><{$vo['street_sn']}>号</span>  <span style="margin-left:10px;">|</span>
+													  <span style="margin-left:10px;"><{$vo['trade']}></span>  <span style="margin-left:10px;">|</span> 
+													  <span style="margin-left:10px;"><{$vo['present_operation']}></span> <span style="margin-left:10px;"> | </span>  
+    										          <span style="margin-left:10px;"><{$vo['basic_installations']}></span>  <span style="margin-left: 10px;">|</span>  <span style="margin-left: 10px;"> 门头<{$vo['door_width']}>m</span>  <span style="margin-left: 10px;">|</span>
+    										          <span style="margin-left: 10px;"><{$vo['floor_str']}></span>  <span style="margin-left: 10px;">|</span> <span style="margin-left: 10px;"></span>     </div>
+    										          <div style="line-height:30px;">标签：
+													  
+													  </div>
+    										          <div style="line-height:30px;"><{$vo['tags_str']}></div>
+    										      </div>
+												  <span style="float: right;"> 
+														<a class="btn btn-info btn-xs" href="index.php?m=admin&c=store&a=updateStore&id=<{$vo['id']}>"><i class="fa fa-edit"></i> 修改</a>
+														<a class="btn btn-info btn-xs" href="index.php?m=admin&c=store&a=details&id=<{$vo['id']}>"><i class="fa fa-file-text"></i> 详情</a>
+													   </span>
+    										  </div>		
+    									   </td>
+    									</tr>	
+									<{/if}>
+									
+									
+									<{foreachelse}>
+    										<tr>
+    										<td>暂无</td>
+    										</tr>
+    								<{/foreach}>	
+									
+                                    
+                                    
+                                         
+									</tbody>
+									
+								</table>
+								<div class="text-center">
+								<ul class="pagination pagination-alt">
+                                         <{if $totalRecords gt 10}>
+										 <{$pages}>
+                                    <{/if}>   
+								</ul></div>
+							</div>
+							<!-- end widget content -->
+
+						</div>
+						<!-- end widget div -->
+
+					</div>
+					<!-- end widget -->
+				</article>
+
+			</div>
+
+
+		</section>
+		<!-- end widget grid -->
+
+	</div>
+	<!-- END MAIN CONTENT -->
+
+</div>
+
+	</body>
+</html>		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="/resources/js/plugin/pace/pace.min.js"></script>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="/resources/js/libs/jquery-2.0.2.min.js"><\/script>');
+			}
+		</script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="/resources/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+			}
+		</script>
+		<script src="/resources/js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="/resources/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="/resources/js/jquery.form.js"></script>
+		<script src="/resources/js/jquery.validate.js"></script>
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="/resources/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+		<!-- BOOTSTRAP JS -->
+		<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="/resources/js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="/resources/js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="/resources/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="/resources/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="/resources/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="/resources/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="/resources/js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="/resources/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="/resources/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- FastClick: For mobile devices -->
+		<script src="/resources/js/plugin/fastclick/fastclick.js"></script>
+
+		<!--[if IE 7]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+		<!-- MAIN APP JS FILE -->
+		<script src="/resources/js/app.js"></script>
+		<script src="/resources/js/demo.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) -->
+		
+ 
+	   <!-- PAGE RELATED PLUGIN(S) -->
+		<script src="/resources/js/plugin/datatables/jquery.dataTables-cust.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ColReorder.min.js"></script>
+		<script src="/resources/js/plugin/datatables/FixedColumns.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ColVis.min.js"></script>
+		<script src="/resources/js/plugin/datatables/ZeroClipboard.js"></script>
+		<script src="/resources/js/plugin/datatables/media/js/TableTools.min.js"></script>
+		<script src="/resources/js/plugin/datatables/DT_bootstrap.js"></script>
+        
+		
+
+		<script type="text/javascript">
+		
+        function isNull(str) {
+			if (str == "") return true;
+			var regu = "^[ ]+$";
+			var re = new RegExp(regu);
+			return re.test(str);
+		}
+        
+		$(document).ready(function() {
+            
+            $("#btnSearch").click(function(){
+					$("#s_form").attr('action',"index.php?m=admin&c=user&a=browers"); 
+					$("#s_form").submit(); 		
+	        });
+            
+            $.datepicker.regional["zh-CN"] = { closeText: "关闭",currentText: "今天", monthNames: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], monthNamesShort: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], dayNames: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"], dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"], dayNamesMin: ["日", "一", "二", "三", "四", "五", "六"], weekHeader: "周", dateFormat: "yy-mm-dd", firstDay: 1, isRTL: !1, showMonthAfterYear: !0, yearSuffix: "年" }
+            $.datepicker.setDefaults($.datepicker.regional["zh-CN"]);
+            pageSetUp();
+            $('.date').datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: true,  
+                changeMonth: true,
+                changeYear: true,
+                prevText : '<i class="fa fa-chevron-left"></i>',
+                nextText : '<i class="fa fa-chevron-right"></i>',
+                dateFormat : 'yy-mm-dd'
+            });
+            
+			 
+		});
+
+ </script>
+ 

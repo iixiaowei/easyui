@@ -1,0 +1,40 @@
+<div class="col-lg-12" id="contact_swap_<{$number}>"  data="<{$number}>">
+    <input type="hidden" name="number[]" value="<{$number}>" />
+	
+	<section class="col-lg-6">
+		<label class="input">姓名 <input type="text" name="contacts[]"
+			value="" placeholder="姓名"> <i></i>
+		</label>
+	</section>
+
+	<section class="col-lg-4">
+		<div class="inline-group" style="margin-top: 21px; margin-left: 30px;">
+			<label class="radio"> <input type="radio" name="role_name_<{$number}>[]" value="中介"> <i></i>中介
+			</label>
+            <label class="radio"> <input type="radio" name="role_name_<{$number}>[]" value="房东" 
+				checked="checked"> <i></i>房东
+			</label> <label class="radio"> <input type="radio" name="role_name_<{$number}>[]" value="经营者">
+				<i></i>经营者
+			</label>
+		</div>
+	</section>
+
+	<section class="col-lg-4" style="clear: both;">
+		<label class="input">电话 <input type="text" value=""
+			name="phone[]" placeholder="电话"> <i></i>
+		</label>
+	</section>
+
+	<section class="col-lg-4">
+		<label class="input">微信 <input type="text"
+			value="" name="wechat[]" placeholder="如有特殊情况请写明">
+			<i></i>
+		</label>
+	</section>
+	<section class="col-lg-4">
+		<a href="javascript:void(0);" class="btn btn-xs btn-success"
+			style="margin-top: 24px; margin-left: 10px;" onclick="setWechatPhone(<{$number}>);">同电话</a> <a onclick="deleteContact(<{$number}>)" 
+			class="btn btn-danger btn-xs" style="margin-top: 24px; float: right;"
+			href="javascript:void(0);">删除</a>
+	</section>
+</div>
